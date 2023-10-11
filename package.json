@@ -1,0 +1,20 @@
+{
+  "name": "rinha-frontend",
+  "version": "1.0.0",
+  "description": "Este é o repositório da Rinha de Frontend. Esta é uma brincadeira e um desafio de código inspirada pela _\"Rinha de Backend\"_, uma iniciativa criada por Francisco Franceschi.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegodsgarcia/rinha-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegodsgarcia/rinha-frontend/issues"
+  },
+  "homepage": "https://github.com/diegodsgarcia/rinha-frontend#readme"
+}
