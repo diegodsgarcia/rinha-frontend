@@ -9,7 +9,7 @@ export default function reader(file) {
     const reader = new FileReader()
     reader.onload = (event) => {
       const parse = JSON.parse(event.target.result)
-      resolve(parse)
+      resolve({ json: parse, fileName: file.name })
     }
     reader.readAsText(file)
    })
