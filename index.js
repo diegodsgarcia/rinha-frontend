@@ -1,6 +1,6 @@
 import reader from './reader.js'
 import createTreeView from './tree-view.js'
-import chunkArray from './chunk-array.js'
+import splitComplexJSON from './splitComplexObject.js'
 
 const form = document.querySelector('.form')
 const input = document.querySelector('.input')
@@ -12,12 +12,10 @@ const bottom = document.querySelector('.bottom')
 input.addEventListener('change', async event => {
   error.style.setProperty('display', 'none')
   const file = event.target.files[0]
-  let lazyJson, result
+  let lazyJson
   try {
     const {json, fileName} = await reader(file)
-    if (json.length > 250) {
-      lazyJson = chunkArray(json, 250)
-    }
+    lazyJson = splitComplexJSON(json, 150)
     createTreeView(lazyJson.next().value, code)
 
     titleFile.textContent = fileName
