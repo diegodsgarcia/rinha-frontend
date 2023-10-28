@@ -15,18 +15,24 @@ input.addEventListener('change', async event => {
   let lazyJson
   try {
     const {json, fileName} = await reader(file)
-    lazyJson = splitComplexJSON(json, 150)
-    createTreeView(lazyJson.next().value, code)
+    /* Tentativa de conseguir fazer a leitura do json em lazyload com yield, mas nâo consegui fazer uma estrutura ideal
+    de split para cada iteraçâo :(
 
+    // lazyJson = splitComplexJSON(json, 1000)
+    createTreeView(lazyJson.next().value, code)*/
+
+    createTreeView(json, code)
     titleFile.textContent = fileName
     form.style.setProperty('display', 'none')
 
+    /*
     const intersectionObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         createTreeView(lazyJson.next().value, code)
       }
     })
     intersectionObserver.observe(bottom)
+    */
   } catch(error) {
     console.error(error)
     error.style.setProperty('display', 'block')
